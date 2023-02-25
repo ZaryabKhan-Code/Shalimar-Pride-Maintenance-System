@@ -12,8 +12,8 @@ def init_app(app):
     app.config['MAIL_SERVER'] = 'smtp.gmail.com'
     app.config['MAIL_PORT'] = 465
     app.config['MAIL_USE_SSL'] = True
-    app.config['MAIL_USERNAME'] = 'your_email_address_here'
-    app.config['MAIL_PASSWORD'] = 'your_email_password_here'
+    app.config['MAIL_USERNAME'] = 'cryptonain5@gmail.com'
+    app.config['MAIL_PASSWORD'] = 'opegdrphcthbsvqn'
     db.init_app(app)
     mail.init_app(app)
     login_manager.init_app(app)

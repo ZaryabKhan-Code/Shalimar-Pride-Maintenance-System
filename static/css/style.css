@@ -1,0 +1,21 @@
+.required-field {
+    color: red;
+    font-weight: bold;
+    margin-left: 5px;
+    cursor: help;
+}
+
+.required-field:hover:after {
+    content: attr(title);
+    display: block;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    z-index: 9999;
+    white-space: nowrap;
+    margin-left: 5px;
+    margin-top: 5px;
+}
