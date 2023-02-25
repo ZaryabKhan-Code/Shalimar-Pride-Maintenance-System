@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block head %}
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="card mt-5">
+          <div class="card-body">
+            <h2 class="card-title text-center mb-5">Resident Registration</h2>
+            {% if message %}
+            <div class="alert alert-success">{{ message }}</div>
+            {% endif %}
+            {% if error_message %}
+            <div class="alert alert-danger">{{ error_message }}</div>
+            {% endif %}
+            <form method="POST" action="{{ url_for('resident_model.resident_register') }}">
+              <div class="form-group">
+                <label for="resident-name">Resident Name</label>
+                <input type="text" class="form-control" id="resident-name" name="resident-name" placeholder="Enter your name" required>
+              </div>
+              <div class="form-group">
+                <label for="resident-email">Resident Email</label>
+                <input type="email" class="form-control" id="resident-email" name="resident-email" placeholder="Enter your email" required>
+              </div>
+              <div class="form-group">
+                <label for="self-cnic-number">Self CNIC Number</label>
+                <input type="text" class="form-control" id="self-cnic-number" name="self-cnic-number" placeholder="Enter your CNIC number (e.g. 1234512345671)" pattern="[0-9]{5}[0-9]{7}[0-9]{1}" required>
+              </div>
+              <div class="form-group">
+                <label for="owner-cnic-number">Owner CNIC Number</label>
+                <input type="text" class="form-control" id="owner-cnic-number" name="owner-cnic-number" placeholder="Enter your CNIC number (e.g. 1234512345671)" pattern="[0-9]{5}[0-9]{7}[0-9]{1}" required>
+              </div>
+              <div class="form-group">
+                <label for="flat-number">Flat Number</label>
+                <input type="text" class="form-control" id="flat-number" name="flat-number" placeholder="Enter your flat number (e.g. B-001)" pattern="[AB]-[0-9]{3}" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter a password" required>
+              </div>
+              <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block mt-5">Register</button>
+            <div class="form-group">
+                <br><center><p>Already have an account? <a href="{{ url_for('resident_model.resident_login') }}">Login here.</a></p></center>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
