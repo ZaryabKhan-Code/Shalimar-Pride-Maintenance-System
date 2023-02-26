@@ -13,12 +13,13 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Shalimar Pride</a>
+    <a class="navbar-brand" href="#">Shalimar Pride Resident Portal</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
+      {% if user_authenticated %}
         <li class="nav-item active">
           <a class="nav-link" href="#">Home</a>
         </li>
@@ -29,19 +30,20 @@
           <a class="nav-link" href="#">Contact</a>
         </li>
       </ul>
+      {% else %}
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="/register">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <a class="nav-link" href="/">Login</a>
         </li>
       </ul>
+      {% endif %}
     </div>
   </nav>
-  <marquee behavior="scroll" direction="left" style="color: black;font-size: large;" class="p-1">Welcome to Shalimar Pride</marquee>
   {% block head %}{% endblock %}
-  <footer class="footer mt-auto py-3 bg-light">
+  <footer class="footer mt-auto py-4 bg-light">
     <div class="container text-center">
       <span class="text-muted">&copy; 2023 Shalimar Pride. All rights reserved<br></span>
       <span class="text-muted">Tech By Zaryab Khan</span>

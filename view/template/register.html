@@ -7,11 +7,17 @@
           <div class="card-body">
             <h2 class="card-title text-center mb-5">Resident Registration</h2>
             {% if message %}
-            <div class="alert alert-success">{{ message }}</div>
-            {% endif %}
-            {% if error_message %}
-            <div class="alert alert-danger">{{ error_message }}</div>
-            {% endif %}
+            <div class="alert alert-success alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              {{ message }}
+            </div>
+          {% endif %}
+          {% if error_message %}
+            <div class="alert alert-danger alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              {{ error_message }}
+            </div>
+          {% endif %}          
             <form method="POST" action="{{ url_for('resident_model.resident_register') }}">
               <div class="form-group">
                 <label for="resident-name">Resident Name <span class="required-field" title="This field is required">*</span></label>

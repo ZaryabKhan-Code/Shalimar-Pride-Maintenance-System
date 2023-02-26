@@ -29,3 +29,4 @@ class ResidentInformationMatch(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     owner_cnic_number = db.Column(db.BigInteger, nullable=False)
     flat_number = db.Column(db.String(10))
+

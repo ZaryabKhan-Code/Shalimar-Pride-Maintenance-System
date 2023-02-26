@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block head %}
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="card mt-5">
+          <div class="card-body">
+            <h2 class="card-title text-center mb-5">Resident Login</h2>
+          {% if error_message %}
+            <div class="alert alert-danger alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              {{ error_message }}
+            </div>
+          {% endif %}          
+            <form method="POST" action="{{ url_for('resident_model.resident_login') }}">
+              <div class="form-group">
+                <div id="cnic-error-message" style="color: red; font-size: 14px; margin-top: 4px;"></div>
+                <label for="self-cnic-number">CNIC Number <span class="required-field" title="This field is required">*</span></label>
+                <input type="text" class="form-control" id="self-cnic-number" name="self-cnic-number" placeholder="Enter your CNIC without dash" pattern="[0-9]{5}[0-9]{7}[0-9]{1}" required>
+              </div> 
+              <div class="form-group">
+                <label for="password">Password <span class="required-field" title="This field is required">*</span></label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block mt-5">Login</button>
+              <div class="form-group mt-3">
+                <p class="text-center">Don't have an account? <a href="{{ url_for('resident_model.resident_register') }}">Register here.</a></p>
+              </div>
+              <div class="form-group mt-3">
+                <p class="text-center"><a href="#">Forgot password?</a></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
